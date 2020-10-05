@@ -1,0 +1,73 @@
+#topbar {
+  background: #ffffff;
+  height: 40px;
+  font-size: 16px;
+  transition: all 0.5s;
+}
+
+#topbar .topbar-transparent {
+  background: transparent;
+}
+
+#topbar .social-links a {
+  color: #413e66;
+  padding-left: 20px;
+  display: inline-block;
+  line-height: 1px;
+  transition: 0.3s;
+}
+
+#topbar .social-links a:hover {
+  color: #1bb1dc;
+}
+
+#topbar .social-links a:first-child {
+  border-left: 0;
+}
+
+#header {
+  transition: all 0.5s;
+}
+
+#header .nav-transparent {
+  background: transparent;
+}
+
+#header .logo {
+  color: #413e66;
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+#header .logo img {
+  max-height: 40px;
+  margin-right: 0.5rem;
+}
+
+#myNavbar .navbar-nav > li > a {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+#myNavbar .navbar-nav > li > a:hover {
+  color: #1bb1dc;
+}
+
+@media (max-width: 992px) {
+  #header .logo {
+    font-size: 16px;
+  }
+}
+
+
+
+
+
+
+
