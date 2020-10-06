@@ -1,6 +1,7 @@
 #booking {
   padding: 60px 0 40px 0;
-  background-color: #E1E7E7;
+  background-color: #f5f8fd;
+  /* background-color: #E1E7E7; */
 }
 
 header h3 {
@@ -56,6 +57,7 @@ hr{
 .card-text {
   font-size: 12px;
   color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 10px;
 }
 
 .btn {

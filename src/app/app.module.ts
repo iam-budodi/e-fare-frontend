@@ -8,12 +8,13 @@ import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { BookingListComponent } from './booking-list/booking-list.component';
 import { Routes, RouterModule } from '@angular/router';
+import { BookingDetailsComponent } from './booking-details/booking-details.component';
 
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'book', component: BookingListComponent},
-  // {path: 'book/:id', component}
+  {path: 'book/:id', component: BookingDetailsComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 @NgModule({
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
     NavComponent,
     HomeComponent,
     BookingListComponent,
+    BookingDetailsComponent,
   ],
   imports: [
     BrowserModule,
