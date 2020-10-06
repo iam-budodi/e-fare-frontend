@@ -1,0 +1,34 @@
+<section id="booking">
+  <div class="container">
+    <header>
+      <h3>Book Your Seat</h3>
+      <hr>
+    </header>
+    <div class="row">
+      <div class="col-sm-6 col-md-4" *ngFor="let event of events">
+        <div class="card bg-light mb-3">
+          <div class="d-flex">
+            <div class="col-md-4">
+              <img src="assets/images/Logo.png" class="card-img" alt="..." />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{event?.name}}</h5>
+                <div class="card-text">
+                  <span>{{event?.date}}</span><br>
+                  <span>{{event?.time}}</span><br>
+                  <span>{{event?.price}}</span>
+                  <span></span>
+                </div>
+                <div>
+                  <a href="" class="btn btn-info" role="button" [routerLink]="['/book']">take a seat</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

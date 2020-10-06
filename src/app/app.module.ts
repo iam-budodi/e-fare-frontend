@@ -6,16 +6,26 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
+import { BookingListComponent } from './booking-list/booking-list.component';
+import { Routes, RouterModule } from '@angular/router';
 
 
+const appRoutes: Routes = [
+  {path: 'home', component: HomeComponent},
+  {path: 'book', component: BookingListComponent},
+  // {path: 'book/:id', component}
+  {path: '', redirectTo: 'home', pathMatch: 'full'}
+];
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
+    BookingListComponent,
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(appRoutes, {useHash: true}),
     NgbModule,
     FontAwesomeModule
   ],
