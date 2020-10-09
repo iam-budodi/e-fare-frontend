@@ -50,12 +50,20 @@
 
 #myNavbar .navbar-nav > li > a {
   font-family: "Montserrat", sans-serif;
+  color: #413e66;
   text-transform: uppercase;
   font-size: 10px;
   font-weight: 700;
 }
 
-#myNavbar .navbar-nav > li > a:hover {
+/* #myNavbar .navbar-nav > li > a:hover {
+  color: #1bb1dc;
+} */
+
+#myNavbar .navbar-nav .nav-item.active .nav-link,
+#myNavbar .navbar-nav .nav-item .nav-link:active,
+#myNavbar .navbar-nav .nav-item .nav-link:focus,
+#myNavbar .navbar-nav .nav-item .nav-link:hover {
   color: #1bb1dc;
 }
 
