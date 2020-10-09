@@ -12,7 +12,7 @@ export class BookingRouteActivatorService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot,
               state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
                 // the !! cast the results of this call to a boolean
-                const eventExists = !!this.bookingService.getEvent(+route.params.id);
+                const eventExists = !!this.bookingService.getBus(+route.params.id);
 
                 if (!eventExists) {
                   this.router.navigate(['404']);

@@ -1,5 +1,6 @@
 import { BookingService } from './../booking.service';
 import { Component, OnInit } from '@angular/core';
+import { Booking } from '../booking';
 
 @Component({
   selector: 'app-booking-list',
@@ -7,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./booking-list.component.css']
 })
 export class BookingListComponent implements OnInit {
-  events: any[];
+  buses: Booking[];
   constructor(private bookingService: BookingService) { }
 
   ngOnInit(): void {
-    this.events = this.bookingService.getEvents();
+    this.bookingService.getBuses().subscribe(response => this.buses = response);
   }
 
 }
