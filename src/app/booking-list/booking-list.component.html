@@ -5,7 +5,7 @@
       <hr>
     </header>
     <div class="row">
-      <div class="col-md-4 col-sm-6" *ngFor="let bus of buses">
+      <div class="col-md-4" *ngFor="let bus of buses">
         <div class="card bg-light mb-3">
           <div class="d-flex">
             <div class="col-md-4 col-sm-4 col-xs-4">
@@ -13,15 +13,18 @@
             </div>
             <div class="col-md-8 col-sm-8 col-xs-8">
               <div class="card-body">
-                <h5 class="card-title">{{bus?.name}}</h5>
+                <h5 class="card-title">{{bus?.route | titlecase}}</h5>
                 <div class="card-text">
-                  <span><strong>departing date: </strong>{{bus?.date}}</span><br>
-                  <span><strong>departing time: </strong>{{bus?.time}}</span><br>
-                  <span><strong>travel price: </strong>{{bus?.price}}</span><br>
-                  <span></span>
+                  <span><strong>Bus category: </strong>{{bus?.category}}</span><br>
+                  <span><strong>Departing date: </strong>{{bus?.departDate | date: 'shortDate'}}</span><br>
+                  <!-- <span><strong>departing time: </strong>{{bus?.time}}</span><br> -->
+                  <span><strong>Available seats: </strong>{{bus?.seatAvailable}}</span><br>
+                  <span><strong>Seat of choice: </strong>{{bus?.seatNumber}}</span><br>
+                  <span><strong>Travel price: </strong>{{bus?.price | currency: 'TZS '}}</span><br>
+                  <span><strong>available: </strong>{{bus?.status}}</span><br>
                 </div>
                 <div>
-                  <a href="" class="btn btn-info" role="button" [routerLink]="['/book', bus.id]">take a seat</a>
+                  <a href="" class="btn btn-info" role="button" [routerLink]="['/buses', bus.id]">take a seat</a>
                 </div>
               </div>
             </div>

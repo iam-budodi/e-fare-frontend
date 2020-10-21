@@ -15,7 +15,7 @@ export class BookingDetailsComponent implements OnInit {
   constructor(private bookingService: BookingService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.bus = this.bookingService.getBus(+this.route.snapshot.params.id);
+    this.bookingService.getBus(+this.route.snapshot.params.id).subscribe(response => this.bus = response);
   }
 
 }

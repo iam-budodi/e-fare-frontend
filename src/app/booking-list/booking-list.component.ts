@@ -12,7 +12,7 @@ export class BookingListComponent implements OnInit {
   constructor(private bookingService: BookingService) { }
 
   ngOnInit(): void {
-    this.bookingService.getBuses().subscribe(response => this.buses = response);
+    this.bookingService.getAllBuses().subscribe(response => this.buses = response);
   }
 
 }

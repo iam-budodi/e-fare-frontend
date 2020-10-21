@@ -1,13 +1,11 @@
 export interface Booking {
-  id: number;
-  name: string;
-  date: Date;
-  time: string;
+  route: string;
+  category: string;
+  departDate: Date;
+  totalSeat: number;
+  seatNumber: number;
+  seatAvailable: number;
   price: number;
-  imageUrl: string;
-  location?: {
-    address: string
-    city: string
-    country: string
-  };
+  busImage: string;
+  status: boolean;
 }

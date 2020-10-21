@@ -1,6 +1,7 @@
-import { BookingRouteActivatorService } from './booking-route-activator.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -10,13 +11,18 @@ import { HomeComponent } from './home/home.component';
 import { BookingListComponent } from './booking-list/booking-list.component';
 import { Routes, RouterModule } from '@angular/router';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
+import { BookingRouteActivatorService } from './booking-route-activator.service';
 import { Error404Component } from './error404/error404.component';
+import { UserComponent } from './user/user.component';
+import { AddBusComponent } from './add-bus/add-bus.component';
 
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'book', component: BookingListComponent},
-  {path: 'book/:id', component: BookingDetailsComponent, canActivate: [BookingRouteActivatorService]},
+  {path: 'login', component: UserComponent},
+  {path: 'buses', component: BookingListComponent},
+  {path: 'buses/:id', component: BookingDetailsComponent, canActivate: [BookingRouteActivatorService]},
+  {path: 'add', component: AddBusComponent},
   {path: '404', component: Error404Component},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
@@ -28,12 +34,16 @@ const appRoutes: Routes = [
     BookingListComponent,
     BookingDetailsComponent,
     Error404Component,
+    UserComponent,
+    AddBusComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes, {useHash: true}),
+    FormsModule,
     NgbModule,
-    FontAwesomeModule
+    HttpClientModule,
+    FontAwesomeModule,
+    RouterModule.forRoot(appRoutes, {useHash: true}),
   ],
   providers: [],
   bootstrap: [AppComponent]
