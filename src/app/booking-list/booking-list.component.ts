@@ -1,3 +1,5 @@
+import { ActivatedRoute } from '@angular/router';
+import { ResponseError } from './../response-error';
 import { BookingService } from './../booking.service';
 import { Component, OnInit } from '@angular/core';
 import { Booking } from '../booking';
@@ -8,11 +10,19 @@ import { Booking } from '../booking';
   styleUrls: ['./booking-list.component.css']
 })
 export class BookingListComponent implements OnInit {
-  buses: Booking[];
-  constructor(private bookingService: BookingService) { }
+  buses: Booking[] | ResponseError;
+  constructor(private bookingService: BookingService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.bookingService.getAllBuses().subscribe(response => this.buses = response);
+    const resolvedData: Booking[] | ResponseError = this.route.snapshot.data.resolvedBuses;
+    // const err: ResponseError;
+    if (resolvedData === {} as ResponseError) {
+      console.error(resolvedData.friendlyMessage);
+    }
+    else {
+      this.buses = resolvedData;
+    }
+    // this.bookingService.getAllBuses().subscribe(response => this.buses = response);
   }
 
 }

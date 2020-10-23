@@ -1,3 +1,4 @@
+import { ResolverService } from './resolver.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -20,8 +21,8 @@ import { AddBusComponent } from './add-bus/add-bus.component';
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: UserComponent},
-  {path: 'buses', component: BookingListComponent},
-  {path: 'buses/:id', component: BookingDetailsComponent, canActivate: [BookingRouteActivatorService]},
+  {path: 'buses', component: BookingListComponent, resolve: { resolvedBuses: ResolverService}},
+  {path: 'buses/:id', component: BookingDetailsComponent},
   {path: 'add', component: AddBusComponent},
   {path: '404', component: Error404Component},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
