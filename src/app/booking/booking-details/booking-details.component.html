@@ -1,0 +1,91 @@
+<section id="booking">
+  <div class="container">
+    <div class="card">
+      <div class="card-header" *ngIf="bus">
+        <h3><span>{{ pageTitle + ": " }}</span> <span>{{ bus.busName | uppercase }}</span> </h3>
+      </div>
+      <div class="card-body" *ngIf="bus">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-3 col-sm-4">Name:</div>
+              <div class="col-md-6 col-sm-5">{{ bus.busName | uppercase }}</div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 col-sm-4">Route:</div>
+              <div class="col-md-6 col-sm-5">{{ bus.busRoute | titlecase }}</div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 col-sm-4">Category:</div>
+              <div class="col-md-6 col-sm-5">{{ bus.busCategory | titlecase }}</div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 col-sm-4">Date of departure:</div>
+              <div class="col-md-6 col-sm-5">
+                {{ bus.departDate | date: "yyyy-MM-dd hh:mm" }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 col-sm-4">Total seats:</div>
+              <div class="col-md-6 col-sm-5">{{ bus.totalSeats }}</div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 col-sm-4">Available seats:</div>
+              <div class="col-md-6 col-sm-5">{{ bus.seatAvailable }}</div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 col-sm-4">Price:</div>
+              <div class="col-md-6 col-sm-4">
+                {{ bus.price | currency: "TZS ":"symbol" }}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4" *ngIf="bus.imageUrl">
+            <img
+              class="center-block img-responsive"
+              [style.height.px]="150"
+              [style.margin.px]="2"
+              [src]="bus.imageUrl"
+              [title]="bus.busName"
+            />
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-md-4">
+            <button
+              class="btn btn-outline-secondary mr-3"
+              style="width: 90px"
+              (click)="onBack()"
+            >
+              <fa-icon [icon]="faChevronLeft"></fa-icon> Back
+            </button>
+            <button
+              class="btn btn-outline-primary mr-3"
+              style="width: 120px"
+              [routerLink]="['/buses', bus.id, 'edit']"
+            >
+              Book this bus
+            </button>
+            <button
+              class="btn btn-outline-primary"
+              style="width: 80px"
+              [routerLink]="['/buses', bus.id, 'edit']"
+            >
+              Edit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+  </div>
+</section>
+
+<!-- <header>
+      <h3>complete your details</h3>
+      <p>please fill your details and select your seat</p>
+      <hr>
+    </header> -->

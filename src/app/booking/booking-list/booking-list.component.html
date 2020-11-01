@@ -1,0 +1,139 @@
+<section id="booking">
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        {{pageTitle}}
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-4 col-sm-3 col-md-2">Search by: </div>
+          <div class="col-4 col-sm-4 col-md-4">
+            <input type="text"
+                  placeholder="Enter bus name"
+                  [(ngModel)]="listFilter" >
+          </div>
+        </div>
+        <div class="row" *ngIf="listFilter" >
+          <div class="col-md-6">
+            <h6>Filtered bus name: {{listFilter}}</h6>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table mb-0" *ngIf="buses && buses.length" >
+            <thead>
+              <tr>
+                <th class="d-none d-sm-none d-md-block">
+                  <button class="btn btn-outline-primary btn-sm" (click)="toggleImage()" >
+                    {{ showImage ? "Hide" : "Show"}} Image
+                  </button>
+                </th>
+                <th>Bus Name</th>
+                <th>Bus Route</th>
+                <th class="d-none d-sm-none d-md-block">Category</th>
+                <th>Date of Departure</th>
+                <th>Price</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let bus of filteredBuses">
+                <td class="d-none d-sm-none d-md-block">
+                  <img *ngIf="showImage && bus.imageurl" 
+                    [src]="bus.imageUrl"
+                    [title]="bus.busName"
+                    [style.width.px]="imageWidth"
+                    [style.margin.px]="imageMargin">
+                </td>
+                <td>
+                  <a [routerLink]="['/buses', bus.id]">
+                    {{ bus.busName | uppercase }}
+                  </a>
+                </td>
+                <td>{{ bus.busRoute | titlecase }}</td>
+                <td class="d-none d-sm-none d-md-block">{{ bus.busCategory | titlecase }}</td>
+                <td>{{ bus.departDate | date: "yyyy/MM/dd hh:mm"  }}</td>
+                <td>{{ bus.price | currency: "TZS " : "symbol" : "1.2-2"}}</td>
+                <td class="d-none d-sm-block">
+                  <button class="btn btn-outline-primary btn-sm"
+                          [routerLink]="['/buses', bus.id, 'edit']">
+                    Edit
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="errorMessage" 
+        class="alert alert-danger">
+      Error: {{ errorMessage }}
+    </div>
+  </div> 
+</section>
+
+<!-- (ngSubmit)="filterBus(searchBusForm.value)" -->
+
+<!-- <div class="row">
+      <div class="card">
+        <div class="card-body">
+          <form #searchBusForm="ngForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="source">Leaving From</label>
+                <input type="text" class="form-control form-control-lg" id="source" required name="source" ngModel>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="destination">Going To</label>
+                <input type="text" class="form-control form-control-lg" id="destination" required name="destination" ngModel>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="departDate">Departing On</label>
+              <input type="date" class="form-control form-control-lg" id="departDate" required name="departDate" ngModel>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Search</button>
+          </form>
+        </div>
+      </div>
+    </div> -->
+
+
+     <!-- <div *ngIf="!isError"  class="container">
+    <header>
+      <h3>Book Your Seat</h3>
+      <hr>
+    </header>
+    
+    <div class="row">
+      <div class="col-md-4" *ngFor="let bus of buses">
+        <div class="card bg-light mb-3">
+          <div class="d-flex">
+            <div class="col-md-4 col-sm-4 col-xs-4">
+              <img src="assets/images/Logo.png" class="card-img" alt="..." />
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-8">
+              <div class="card-body">
+                <h5 class="card-title">{{bus?.route | titlecase}}</h5>
+                <div class="card-text">
+                  <span><strong>Bus category: </strong>{{bus?.category}}</span><br>
+                  <span><strong>Departing date: </strong>{{bus?.departDate | date: 'shortDate'}}</span><br>
+                  <span><strong>Available seats: </strong>{{bus?.seatAvailable}}</span><br>
+                  <span><strong>Seat of choice: </strong>{{bus?.seatNumber}}</span><br>
+                  <span><strong>Travel price: </strong>{{bus?.price | currency: 'TZS '}}</span><br>
+                  <span><strong>available: </strong>{{bus?.status}}</span><br>
+                </div>
+                <div>
+                  <a href="" class="btn btn-info" role="button" [routerLink]="['/buses', bus.id]">take a seat</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isError"  class="container">
+    <app-error404 [errorMessage]='buses.friendlyMessage'></app-error404>
+  </div> -->

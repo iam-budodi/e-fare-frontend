@@ -1,4 +1,4 @@
-import { AuthService } from './../auth.service';
+import { AuthService } from './../../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 

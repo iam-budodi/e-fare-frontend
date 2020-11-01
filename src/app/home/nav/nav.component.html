@@ -9,9 +9,12 @@
   </div>
 </div>
 
-<nav id="header" class="navbar sticky-top navbar-light bg-light navbar-expand-lg navbar-template">
+<nav
+  id="header"
+  class="navbar sticky-top navbar-light bg-light navbar-expand-lg navbar-template"
+>
   <a class="navbar-brand logo" href="/">
-    <img src="assets/images/Logo.png" alt="logo" class="img-fluid">
+    <img src="assets/images/Logo.png" alt="logo" class="img-fluid" />
     <span class="text-bold">dart</span>
   </a>
   <!-- <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
@@ -20,21 +23,49 @@
   <div class="d-flex flex-row order-2 order-lg-3">
     <ul class="navbar-nav flex-row">
       <li class="nav-item">
-        <a *ngIf="!authService.isAuthenticated()"  class="btn btn-secondary" role="button" [routerLink]="['/login']">signup/login</a>
-        <a *ngIf="authService.isAuthenticated()"  class="btn btn-secondary" role="button" [routerLink]="['/login']">welcome {{authService.currentUser.firstName}}</a>
+        <a
+          *ngIf="!authService.isAuthenticated()"
+          class="btn btn-secondary"
+          role="button"
+          [routerLink]="['/login']"
+          >signup/login</a
+        >
+        <a
+          *ngIf="authService.isAuthenticated()"
+          class="btn btn-secondary"
+          role="button"
+          [routerLink]="['/login']"
+          >welcome {{ authService.currentUser.firstName }}</a
+        >
       </li>
     </ul>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#myNavbar"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
   </div>
-  <div class="collapse navbar-collapse text-right order-3 order-lg-2" id="myNavbar">
+  <div
+    class="collapse navbar-collapse text-right order-3 order-lg-2"
+    id="myNavbar"
+  >
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-        <a class="nav-link m-2 menu-item nav-active" href="/">Home<span class="sr-only">(current)</span></a>
+        <a class="nav-link m-2 menu-item nav-active" href="/"
+          >Home<span class="sr-only">(current)</span></a
+        >
       </li>
       <li class="nav-item">
-        <a href="#about" class="nav-link m-2 menu-item">About Us</a>
+        <a
+          class="nav-link m-2 menu-item"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          [routerLink]="['/buses/0/edit']"
+          >Add Bus</a
+        >
       </li>
       <li class="nav-item">
         <a href="#services" class="nav-link m-2 menu-item">Services</a>

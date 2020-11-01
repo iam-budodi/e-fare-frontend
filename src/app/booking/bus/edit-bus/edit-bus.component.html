@@ -1,0 +1,216 @@
+<section>
+  <div class="container col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-header">
+        {{ pageTitle }}
+      </div>
+      <div class="card-body">
+        <form novalidate (ngSubmit)="saveBus()" [formGroup]="busForm">
+          <div class="form-group row mb-2">
+            <label for="busNameId" class="col-md-2 col-form-label"
+              >Bus Name</label
+            >
+            <div class="col-md-8">
+              <input
+                type="text"
+                class="form-control"
+                id="busNameId"
+                placeholder="Name"
+                formControlName="busName"
+                [ngClass]="{ 'is-invalid': displayMessage.busName }"
+              />
+              <span class="invalid-feedback">
+                {{ displayMessage.busName }}
+              </span>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label for="busRouteId" class="col-md-2 col-form-label"
+              >Bus Route</label
+            >
+            <div class="col-md-8">
+              <input
+                type="text"
+                class="form-control"
+                id="busRouteId"
+                placeholder="Route"
+                formControlName="busRoute"
+                [ngClass]="{ 'is-invalid': displayMessage.busRoute }"
+              />
+              <span class="invalid-feedback">
+                {{ displayMessage.busRoute }}
+              </span>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label for="busCategoryId" class="col-md-2 col-form-label"
+              >Bus Category</label
+            >
+            <div class="col-md-8">
+              <input
+                type="text"
+                class="form-control"
+                id="busCategoryId"
+                placeholder="Category"
+                formControlName="busCategory"
+                [ngClass]="{ 'is-invalid': displayMessage.busCategory }"
+              />
+              <span class="invalid-feedback">
+                {{ displayMessage.busCategory }}
+              </span>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label for="departDateId" class="col-md-2 col-form-label"
+              >Date of Departure</label
+            >
+            <div class="col-md-8">
+              <input
+                type="datetime-local"
+                class="form-control"
+                id="departDateId"
+                placeholder="Date"
+                formControlName="departDate"
+                [ngClass]="{ 'is-invalid': displayMessage.departDate }"
+              />
+              <span class="invalid-feedback">
+                {{ displayMessage.departDate }}
+              </span>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label for="totalSeatsId" class="col-md-2 col-form-label"
+              >Total Seats</label
+            >
+            <div class="col-md-8">
+              <input
+                type="number"
+                class="form-control"
+                id="totalSeatsId"
+                placeholder="Total number"
+                formControlName="totalSeats"
+                [ngClass]="{ 'is-invalid': displayMessage.totalSeats }"
+              />
+              <span class="invalid-feedback">
+                {{ displayMessage.totalSeats }}
+              </span>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label for="seatSelectedId" class="col-md-2 col-form-label"
+              >Selected Seat</label
+            >
+            <div class="col-md-8">
+              <input
+                type="number"
+                class="form-control"
+                id="seatSelectedId"
+                placeholder="Seat Number"
+                formControlName="seatSelected"
+                [ngClass]="{ 'is-invalid': displayMessage.seatSelected }"
+              />
+              <span class="invalid-feedback">
+                {{ displayMessage.seatSelected }}
+              </span>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label for="seatAvailableId" class="col-md-2 col-form-label"
+              >Available Seats</label
+            >
+            <div class="col-md-8">
+              <input
+                type="number"
+                class="form-control"
+                id="seatAvailableId"
+                placeholder="Available Seats"
+                formControlName="seatAvailable"
+                [ngClass]="{ 'is-invalid': displayMessage.seatAvailable }"
+              />
+              <span class="invalid-feedback">
+                {{ displayMessage.seatAvailable }}
+              </span>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label for="priceId" class="col-md-2 col-form-label">Price</label>
+            <div class="col-md-8">
+              <input
+                type="number"
+                class="form-control"
+                id="priceId"
+                placeholder="Price"
+                formControlName="price"
+                [ngClass]="{ 'is-invalid': displayMessage.price }"
+              />
+              <span class="invalid-feedback">
+                {{ displayMessage.price }}
+              </span>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label for="imageId" class="col-md-2 col-form-label">Upload image</label>
+            <div class="col-md-8">
+              <input
+                type="file"
+                class="form-control-file form-control-file-lg"
+                id="imageId"
+                formControlName="imageUrl" 
+              />
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <div class="offset-md-2 col-md-6">
+              <button type="submit"
+                class="btn btn-primary mr-3"
+                style="width: 80px"
+                [title]="busForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                [disabled]="!busForm.valid">
+                Save
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary mr-3"
+                style="width: 80px"
+                title="Cancel your edits"
+                [routerLink]="['/buses']"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-warning mr-3"
+                style="width: 80px"
+                title="Delete this bus"
+                (click)="deleteBus()" 
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+          <!-- <div *ngIf="submitted">
+            <div class="card-header">
+              <h4>{{ pageSubTitle }}</h4>
+            </div>
+            <div class="form-group row mb-2">
+              <div class="col-md-4 offset-md-2">
+                <button
+                  type="button"
+                  class="btn btn-primary mr-3"
+                  style="width: 80px"
+                  title="Add another Bus"
+                  [disabled]="!busForm.valid"
+                >
+                  Add Another Bus
+                </button>
+              </div>
+            </div>
+          </div> -->
+        </form>
+      </div>
+      <div class="alert alert-danger"
+        *ngIf="errorMessage">{{errorMessage}}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,10 +1,11 @@
-import { catchError } from 'rxjs/operators';
-import { BookingService } from './booking.service';
-import { ResponseError } from './response-error';
 import { Injectable } from '@angular/core';
+import { catchError } from 'rxjs/operators';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
-import { Booking } from './booking';
 import { Observable, of } from 'rxjs';
+import { Booking } from './../../booking';
+import { ResponseError } from './../../response-error';
+import { BookingService } from './../../booking.service';
+
 
 @Injectable({
   providedIn: 'root'
