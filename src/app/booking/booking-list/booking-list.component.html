@@ -45,7 +45,7 @@
                     [style.margin.px]="imageMargin">
                 </td>
                 <td>
-                  <a [routerLink]="['/buses', bus.id]">
+                  <a [routerLink]="['/buses', bus.id]" [queryParams]="{filteredBy: listFilter}">
                     {{ bus.busName | uppercase }}
                   </a>
                 </td>

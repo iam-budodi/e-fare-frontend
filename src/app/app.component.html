@@ -1,2 +1,4 @@
-<app-nav></app-nav>
-<router-outlet></router-outlet>
+<div [@slideInAnimation]="o.isActivated ? o.activatedRoute : ''">
+    <app-nav></app-nav>
+    <router-outlet #o="outlet"></router-outlet>
+</div>

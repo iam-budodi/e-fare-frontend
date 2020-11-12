@@ -52,17 +52,18 @@
         </div>
 
         <div class="row mt-4">
-          <div class="col-md-4">
+          <div class="col-md-6">
             <button
               class="btn btn-outline-secondary mr-3"
               style="width: 90px"
+              queryParamsHandling="preserve"
               (click)="onBack()"
             >
               <fa-icon [icon]="faChevronLeft"></fa-icon> Back
             </button>
             <button
               class="btn btn-outline-primary mr-3"
-              style="width: 120px"
+              style="width: 140px"
               [routerLink]="['/buses', bus.id, 'edit']"
             >
               Book this bus

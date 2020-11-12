@@ -13,7 +13,8 @@ export class ResolveDetailsService implements Resolve<Booking | ResponseError> {
 
   constructor(private bookingService: BookingService) { }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Booking | ResponseError> {
-    return this.bookingService.getBus(+route.paramMap.get('id')).
+    const id = +route.paramMap.get('id');
+    return this.bookingService.getBus(id).
       pipe(
         catchError(error => of(error))
       );

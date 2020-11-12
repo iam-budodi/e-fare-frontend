@@ -6,10 +6,9 @@ import { Booking } from './../../booking';
 @Component({
   selector: 'app-booking-list',
   templateUrl: './booking-list.component.html',
-  styleUrls: ['./booking-list.component.css']
+  styleUrls: ['./booking-list.component.css'],
 })
 export class BookingListComponent implements OnInit {
-
   // buses: Booking[] | ResponseError;
 
   isError: boolean = false;
@@ -28,33 +27,38 @@ export class BookingListComponent implements OnInit {
 
   set listFilter(value: string) {
     this._listFilter = value;
-    this.filteredBuses = this._listFilter ? this.filterBus(this.listFilter) : this.buses;
+    this.filteredBuses = this.listFilter
+      ? this.filterBus(this.listFilter)
+      : this.buses;
   }
 
   filteredBuses: Booking[] | ResponseError = [];
   buses: Booking[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
+    // this.listFilter = this.route.snapshot.queryParamMap.get('filteredBy') || '';
     // const resolvedData: Booking[] | ResponseError = this.route.snapshot.data.resolvedBuses;
-    const resolvedData: Booking[] = this.route.snapshot.data.resolvedBuses;
-    if (resolvedData instanceof ResponseError) {
-      //this.isError = true;
-      this.buses = resolvedData;
-    }
-    else {
-      // console.log(resolvedData);
-
-      this.buses = resolvedData;
-    }
-    // this.bookingService.getAllBuses().subscribe(response => this.buses = response);
+    this.route.data.subscribe((data) => {
+      const resolvedData: Booking[] = data.resolvedBuses;
+      if (resolvedData instanceof ResponseError) {
+        //this.isError = true;
+        this.buses = resolvedData;
+        this.filteredBuses = this.buses;
+      } else {
+        this.buses = resolvedData;
+        this.filteredBuses = this.buses;
+      }
+    });
   }
 
   filterBus(filteredBy: string): Booking[] | ResponseError {
-    const filterBy = filteredBy.toLocaleLowerCase();
-    return this.buses.filter((bus: Booking) =>
-      bus.busName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+    filteredBy = filteredBy.toLocaleLowerCase();
+    return this.buses.filter(
+      (bus: Booking) =>
+        bus.busName.toLocaleLowerCase().indexOf(filteredBy) !== -1
+    );
   }
 
   toggleImage(): void {

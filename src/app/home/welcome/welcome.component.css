@@ -1,6 +1,6 @@
 #hero {
     height: 100vh;
-    /* position: relative; */
+    /* position: relative;  */
     background: #f5f8fd url('/assets/images/intro-bg.jpg') center top no-repeat;
     background-size: contain;
     text-transform: capitalize;
@@ -19,7 +19,7 @@
   
   @media (max-width: 767px) {
     #hero {
-      height: auto;
+      /* height: auto; */
       padding: 20px 0 40px 0;
     }
   
