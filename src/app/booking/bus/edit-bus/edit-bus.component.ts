@@ -1,4 +1,4 @@
-import { group } from '@angular/animations';
+// import { group } from '@angular/animations';
 import {
   AfterViewInit,
   Component,
@@ -18,7 +18,7 @@ import { fromEvent, merge, Observable, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { Booking } from 'src/app/booking';
 import { BookingService } from 'src/app/booking.service';
-import { GenericValidator } from './../generic-validator';
+import { GenericValidator } from '../../../shared/generic-validator';
 
 @Component({
   selector: 'app-edit-bus',
@@ -51,7 +51,8 @@ export class EditBusComponent implements OnInit, AfterViewInit, OnDestroy {
   ) {
     // Defines all of the validation messages for the form.
     // These could instead be retrieved from a file or database.
-    this.validationMessages = {
+    this.validationMessages = 
+    {
       busName: {
         required: 'Bus name is required.',
         minlength: 'Bus name must be at least three characters.',

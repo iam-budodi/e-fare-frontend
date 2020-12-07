@@ -1,0 +1,8 @@
+{
+  "domain": "dev-i8kr0uhl.us.auth0.com",
+  "clientId": "p9cCYF5geTV7ukrpx4yY417CCBSIVVq6",
+  "audience": "https://dev-i8kr0uhl.us.auth0.com/api/v2/",
+  "apiUri": "http://localhost:8080",
+  "appUri": "http://localhost:8081"
+
+}

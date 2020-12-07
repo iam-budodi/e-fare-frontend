@@ -25,7 +25,7 @@
   border-left: 0;
 }
 
-#header {
+#nav-bar {
   transition: all 0.5s;
   background: transparent;
 }
@@ -37,7 +37,7 @@
   font-weight: 700;
 }
 
-#header .logo {
+#nav-bar .logo {
   color: #413e66;
   font-size: 24px;
   margin: 0;
@@ -47,12 +47,12 @@
   text-transform: uppercase;
 }
 
-#header .logo img {
+#nav-bar .logo img {
   max-height: 40px;
   margin-right: 0.5rem;
 }
 
-#myNavbar .navbar-nav > li > a {
+#navbarNav .navbar-nav > li > a {
   font-family: "Montserrat", sans-serif;
   color: #413e66;
   text-transform: uppercase;
@@ -60,19 +60,19 @@
   font-weight: 700;
 }
 
-/* #myNavbar .navbar-nav > li > a:hover {
+/* #navbarNav .navbar-nav > li > a:hover {
   color: #1bb1dc;
 } */
 
-#myNavbar .navbar-nav .nav-item.active .nav-link,
-#myNavbar .navbar-nav .nav-item .nav-link:active,
-#myNavbar .navbar-nav .nav-item .nav-link:focus,
-#myNavbar .navbar-nav .nav-item .nav-link:hover {
+#navbarNav .navbar-nav .nav-item.active .nav-link,
+#navbarNav .navbar-nav .nav-item .nav-link:active,
+#navbarNav .navbar-nav .nav-item .nav-link:focus,
+#navbarNav .navbar-nav .nav-item .nav-link:hover {
   color: #1bb1dc;
 }
 
 @media (max-width: 992px) {
-  #header .logo {
+  #nav-bar .logo {
     font-size: 16px;
   }
 

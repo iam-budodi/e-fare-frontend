@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { BookingListComponent } from './booking-list/booking-list.component';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
@@ -38,6 +39,7 @@ const bookingRoutes: Routes = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
     RouterModule.forChild(bookingRoutes),
   ],
 })
